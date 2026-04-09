@@ -42,3 +42,8 @@ for carrera in links:
                 print(f"Listo!")
             except Exception as e:
                 print(f"Error en {carrera}: {e}")
+
+final_data=pd.concat(df_final).reset_index(drop=True)
+final_data.to_excel('output/resultados_admision.xlsx', index=False)
+print("Archivo guardado convertido en Excel")
+driver.quit()
