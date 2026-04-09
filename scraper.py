@@ -22,3 +22,23 @@ links= []
 for url in url_carreras:
     link=url.get_attribute("href")
     links.append(link)
+
+df_final=[]
+
+for carrera in links:
+    time.sleep(10)
+    driver.get(carrera)
+    registros=driver.find_element(By.ID, "dt-length-0")
+    for option in registros.find_elements(By.TAG_NAME, "option"):
+        if option.text=="100":
+            option.click()
+            print(f"Cargando 100 registros para: {carrera}")
+            time.sleep(10)
+
+            try:
+                tabla_resultados = driver.find_element(By.ID, "tablaPostulantes").get_attribute("outerHTML")
+                tabla_final = pd.read_html(tabla_resultados)[0]
+                df_final.append(tabla_final)
+                print(f"Listo!")
+            except Exception as e:
+                print(f"Error en {carrera}: {e}")
