@@ -1,4 +1,4 @@
-##API REST: RAWG Video Games Database
+## API REST: RAWG Video Games Database
 
 ### ¿Qué hace esta sección?
 En esta sección se hacen requests para analizar, extraer y comparar datos de diversos videojuegos en la plataforma RAWG por medio de un API Key. Se exploraron estadísticas generales, rankings, comparaciones y, finalmente, se exporta un top 20 de los mejores juegos a todo nivel.
